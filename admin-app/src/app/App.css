@@ -1,0 +1,52 @@
+:root {
+    --bg: #f0f2f5;
+    --surface: #ffffff;
+    --surface-2: #f8f9fb;
+    --border: #e4e7ec;
+    --border-light: #eef0f4;
+    --text: #1a1d23;
+    --text-2: #4b5563;
+    --text-3: #8f96a3;
+    --accent: #2563eb;
+    --accent-light: #eff6ff;
+    --accent-hover: #1d4ed8;
+    --green: #16a34a;
+    --green-light: #f0fdf4;
+    --red: #dc2626;
+    --red-light: #fef2f2;
+    --orange: #ea580c;
+    --orange-light: #fff7ed;
+    --purple: #7c3aed;
+    --purple-light: #f5f3ff;
+    --sidebar-w: 220px;
+    --header-h: 56px;
+    --radius: 10px;
+    --radius-sm: 6px;
+    --shadow: 0 1px 3px rgba(0, 0, 0, .06), 0 1px 2px rgba(0, 0, 0, .04);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, .08), 0 1px 3px rgba(0, 0, 0, .04);
+    --transition: 150ms cubic-bezier(.4, 0, .2, 1);
+}
+
+.acowdp-btn-sm {
+    padding: 5px 11px;
+    font-size: 12px;
+}
+
+.acowdp-btn-primary {
+    background: var(--accent);
+    color: #fff;
+}
+
+.acowdp-btn-primary:hover {
+    background: var(--accent-hover);
+}
+
+.acowdp-btn-ghost {
+    background: transparent;
+    color: var(--text-2);
+    border: 1px solid var(--border);
+}
+
+.acowdp-btn-ghost:hover {
+    background: var(--border-light);
+}

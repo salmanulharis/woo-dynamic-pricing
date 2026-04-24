@@ -1,0 +1,55 @@
+.acowdp-shell {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.acowdp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 0 20px;
+    background: #fff;
+    border-bottom: 1px solid #dcdcde;
+}
+
+.acowdp-header h1 {
+    font-size: 15px;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+}
+
+.acowdp-header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.acowdp-header-button {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 13px;
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition);
+    border: none;
+    font-family: inherit;
+}
+
+.acowdp-header-button svg {
+    width: 15px;
+    height: 15px;
+}
+
+.acowdp-content {
+    flex: 1;
+    padding: 40px;
+    background: var(--bg);
+    height: 100vh;
+    overflow-y: auto;
+}
