@@ -15,7 +15,7 @@ class ACOWDP_Admin_Assets {
         }
 
         // REST namespace and URL.
-        $namespace = ACOWDP_Plugin::ACOWDP_REST_NAMESPACE;
+        $namespace = defined( 'ACOWDP_REST_NAMESPACE' ) ? ACOWDP_REST_NAMESPACE : 'acowdp-api/v1';
         $restURL   = esc_url_raw( rest_url() );
 
         // Admin CSS.

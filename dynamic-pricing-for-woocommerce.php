@@ -29,9 +29,10 @@ define( 'ACOWDP_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'ACOWDP_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'ACOWDP_API_ASSETS_URL', plugin_dir_url( __FILE__ ) . 'assets/' );
 define( 'ACOWDP_API_ASSETS_PATH', plugin_dir_path( __FILE__ ) . 'assets/' );
-define( 'ACOWDP_REST_NAMESPACE', 'acowdp-api/v1' );
 define( 'ACOWDP_STORE_URL', 'https://api.acowebs.com' );
 define( 'ACOWDP_ITEM_ID', 381295 );
+define( 'ACOWDP_REST_NAMESPACE', 'acowdp-api/v1' );
+define( 'ACOWDP_PREFIX', 'acowdp_' );
 
 // -----------------------------
 // Plugin Initialization

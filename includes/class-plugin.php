@@ -5,9 +5,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class ACOWDP_Plugin {
 
-    const ACOWDP_REST_NAMESPACE = 'acowdp-api/v1';
-    const ACOWDP_PREFIX = 'acowdp_';
-
     public static function acowdp_init() {
         self::acowdp_includes();
         ACOWDP_Admin_Menu::acowdp_init();

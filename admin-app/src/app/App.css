@@ -27,6 +27,27 @@
     --transition: 150ms cubic-bezier(.4, 0, .2, 1);
 }
 
+.acowdp-btn {
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition);
+    border: none;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    justify-content: center;
+    width: fit-content;
+    height: fit-content;
+    background: transparent;
+    color: var(--text-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+}
+
 .acowdp-btn-sm {
     padding: 5px 11px;
     font-size: 12px;
@@ -49,4 +70,15 @@
 
 .acowdp-btn-ghost:hover {
     background: var(--border-light);
+}
+
+.acowdp-link-btn {
+    color: var(--text-2);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition);
+    border: none;
+    font-family: inherit;
 }
