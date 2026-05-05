@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "../styles/RulesForm.css";
 import GeneralSettings from "./GeneralSettings";
+import ProductFilter from "./ProductFilter";
+import DiscountType from "./DiscountType";
 
 export default function RulesFrom({ onCancel }) {
   const [activeTab, setActiveTab] = useState("discount");
@@ -28,6 +30,8 @@ export default function RulesFrom({ onCancel }) {
       {/* Body */}
       <div className="acowdp-rules-form-body">
         <GeneralSettings />
+        <DiscountType />
+        <ProductFilter />
       </div>
 
       {/* Footer */}
