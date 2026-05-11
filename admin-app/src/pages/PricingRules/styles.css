@@ -1,0 +1,232 @@
+.acowdp-pricing-rules {
+    padding: 24px;
+    background: #f6f7fb;
+    min-height: 100vh;
+}
+
+.acowdp-pricing-rules h1 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #1d2327;
+    margin-bottom: 24px;
+}
+
+/* Actions */
+.acowdp-pricing-rules-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.acowdp-pricing-rules-filters {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.acowdp-pricing-rules-filter-bulk-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Selects */
+.acowdp-select-box {
+    height: 40px;
+    padding: 0 14px;
+    border: 1px solid #dcdcde;
+    border-radius: 8px;
+    background: #fff;
+    color: #1d2327;
+    font-size: 14px;
+    min-width: 180px;
+    outline: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.acowdp-select-box:hover {
+    border-color: #b8bcc2;
+}
+
+.acowdp-select-box:focus {
+    border-color: #2271b1;
+    box-shadow: 0 0 0 1px #2271b1;
+}
+
+.acowdp-pricing-rules-filter-by-select.acowdp-select-box {
+    min-width: 220px;
+}
+
+/* Buttons */
+.btn {
+    height: 40px;
+    padding: 0 18px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+.btn-primary {
+    background: #2271b1;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: #135e96;
+}
+
+/* Table Wrapper */
+.acowdp-pricing-rules-table {
+    background: #fff;
+    border: 1px solid #e2e4e7;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+/* Table */
+.acowdp-pricing-rules-table table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 900px;
+}
+
+/* Head */
+.acowdp-pricing-rules-table thead {
+    background: #fcfcfd;
+    border-bottom: 1px solid #ececec;
+}
+
+.acowdp-pricing-rules-table th {
+    padding: 16px 18px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    text-align: left;
+    white-space: nowrap;
+}
+
+/* Body */
+.acowdp-pricing-rules-table td {
+    padding: 18px;
+    border-top: 1px solid #f1f1f1;
+    font-size: 14px;
+    color: #1f2937;
+    vertical-align: middle;
+    background: #fff;
+}
+
+.acowdp-pricing-rules-table tbody tr {
+    transition: background 0.2s ease;
+}
+
+.acowdp-pricing-rules-table tbody tr:hover {
+    background: #fafafa;
+}
+
+/* Discount badge */
+.acowdp-discount-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #eef4ff;
+    border: 1px solid #cfe0ff;
+    color: #2563eb;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* Status Toggle */
+.acowdp-status-toggle {
+    width: 38px;
+    height: 22px;
+    background: #d1d5db;
+    border-radius: 999px;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.acowdp-status-toggle::before {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: #fff;
+    border-radius: 50%;
+    top: 3px;
+    left: 3px;
+    transition: transform 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.acowdp-status-toggle.active {
+    background: #22c55e;
+}
+
+.acowdp-status-toggle.active::before {
+    transform: translateX(16px);
+}
+
+/* Action Buttons */
+.acowdp-table-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.acowdp-table-actions .btn {
+    height: 34px;
+    padding: 0 14px;
+    font-size: 13px;
+    border-radius: 6px;
+}
+
+.acowdp-table-actions .btn-delete {
+    background: #fff1f2;
+    border: 1px solid #fecdd3;
+    color: #e11d48;
+}
+
+.acowdp-table-actions .btn-delete:hover {
+    background: #ffe4e6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .acowdp-pricing-rules-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .acowdp-pricing-rules-filters {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .acowdp-pricing-rules-filter-bulk-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .acowdp-select-box,
+    .btn {
+        width: 100%;
+    }
+}
