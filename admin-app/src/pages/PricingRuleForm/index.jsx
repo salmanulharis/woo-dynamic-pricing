@@ -1,34 +1,123 @@
-import { DISCOUNT_TYPES } from './constants';
+import { useState, useEffect } from 'react';
 import './styles.css';
+import { INITIAL_FORM_STATE } from './constants';
 import GeneralSettings from './components/GeneralSettings';
 import DiscountOptions from './components/DiscountOptions';
 import ProductFilters from './components/ProductFilters';
 import RulesAndRestrictions from './components/RulesAndRestrictions';
+import PreviewSidebar from './components/PreviewSidebar';
+
+// Detect edit mode from URL path: /edit/:id
+const getEditId = () => {
+  const match = window.location.pathname.match(/\/edit\/([^/]+)/);
+  return match ? match[1] : null;
+};
+
+// Mock fetch — replace with real API call
+const fetchExistingRule = async (ruleId) => ({
+  ruleName: `Rule #${ruleId}`,
+  priority: '5',
+  discountType: 'percentage',
+  discountStatus: true,
+  discountValue: '20',
+  multipleDiscounts: false,
+  useCustomFilter: false,
+  productList: 'all',
+  productFilters: [],
+  disableSaleDiscount: false,
+  specificRolesOnly: false,
+  specificUserRoles: [],
+  ruleGroups: [{ discount_type: 'fixed', condition_type: 'equal_to', value: '10' }],
+});
 
 const PricingRuleForm = () => {
-    return (
-        <div className="main-content acowdp-pricing-rule-form">
-            <h1>Pricing Rule Form</h1>
-            <div className="acowdp-pricing-rule-form-content">
+  const [formData, setFormData] = useState(INITIAL_FORM_STATE);
 
-                {/* GENERAL SETTINGS */}
-                <GeneralSettings />
+  const editId = getEditId();
+  const isEditMode = Boolean(editId);
 
-                {/* DISCOUNT OPTIONS */}
-                <DiscountOptions />
-
-                {/* Product Filters */}
-                <ProductFilters />
-
-                {/* Rules and Restrictions */}
-                <RulesAndRestrictions />
-
-            </div>
-            <div className="acowdp-pricing-rule-form-footer">
-                <button type="button" className="acowdp-pricing-rule-form-button acowdp-ui-control acowdp-ui-button">Publish</button>
-            </div>
-        </div>
+  useEffect(() => {
+    if (!isEditMode) return;
+    fetchExistingRule(editId).then(existingData =>
+      setFormData(prev => ({ ...prev, ...existingData }))
     );
+  }, [editId]);
+
+  // Generic field updater for scalar values (string, boolean, number)
+  const setField = (fieldName) => (value) =>
+    setFormData(prev => ({ ...prev, [fieldName]: value }));
+
+  // Array field updater — supports both direct values and functional updaters
+  // e.g. setArrayField('productFilters')(prev => [...prev, newItem])
+  const setArrayField = (fieldName) => (updaterOrValue) =>
+    setFormData(prev => ({
+      ...prev,
+      [fieldName]: typeof updaterOrValue === 'function'
+        ? updaterOrValue(prev[fieldName])
+        : updaterOrValue,
+    }));
+
+  const handleSubmit = () => {
+    console.log(isEditMode ? `Updating rule ${editId}` : 'Publishing rule', formData);
+    // Replace with real save / update API call
+  };
+
+  return (
+    <div className="acowdp-page">
+
+      <div className="acowdp-page-title">
+        <h1>{isEditMode ? 'Edit Pricing Rule' : 'Add Pricing Rule'}</h1>
+        {isEditMode && <span className="acowdp-edit-badge">Editing #{editId}</span>}
+      </div>
+
+      <main className="acowdp-main">
+        <GeneralSettings
+          ruleName={formData.ruleName}
+          priority={formData.priority}
+          discountType={formData.discountType}
+          discountStatus={formData.discountStatus}
+          setRuleName={setField('ruleName')}
+          setPriority={setField('priority')}
+          setDiscountType={setField('discountType')}
+          setDiscountStatus={setField('discountStatus')}
+        />
+
+        <DiscountOptions
+          discountValue={formData.discountValue}
+          setDiscountValue={setField('discountValue')}
+          multipleDiscounts={formData.multipleDiscounts}
+          setMultipleDiscounts={setField('multipleDiscounts')}
+        />
+
+        <ProductFilters
+          useCustomFilter={formData.useCustomFilter}
+          setUseCustomFilter={setField('useCustomFilter')}
+          productList={formData.productList}
+          setProductList={setField('productList')}
+          productFilters={formData.productFilters}
+          setProductFilters={setArrayField('productFilters')}
+          disableSaleDiscount={formData.disableSaleDiscount}
+          setDisableSaleDiscount={setField('disableSaleDiscount')}
+        />
+
+        <RulesAndRestrictions
+          specificRolesOnly={formData.specificRolesOnly}
+          setSpecificRolesOnly={setField('specificRolesOnly')}
+          specificUserRoles={formData.specificUserRoles}
+          setSpecificUserRoles={setArrayField('specificUserRoles')}
+          ruleGroups={formData.ruleGroups}
+          setRuleGroups={setArrayField('ruleGroups')}
+        />
+      </main>
+
+      <PreviewSidebar
+        isEditMode={isEditMode}
+        onSubmit={handleSubmit}
+        formData={formData}
+      />
+
+    </div>
+  );
 };
 
 export default PricingRuleForm;
