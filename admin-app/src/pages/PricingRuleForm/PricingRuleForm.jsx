@@ -1,6 +1,8 @@
-import { useState, useEffect } from 'react';
-import './styles.css';
+import { useState, useEffect, use } from 'react';
+import { ProFetchWP } from '../../utils/ProFetchWP';
+import './PricingRuleForm.css';
 import { INITIAL_FORM_STATE } from './constants';
+
 import GeneralSettings from './components/GeneralSettings';
 import DiscountOptions from './components/DiscountOptions';
 import ProductFilters from './components/ProductFilters';
@@ -57,10 +59,28 @@ const PricingRuleForm = () => {
         : updaterOrValue,
     }));
 
-  const handleSubmit = () => {
-    console.log(isEditMode ? `Updating rule ${editId}` : 'Publishing rule', formData);
-    // Replace with real save / update API call
+  const handleSubmit = async () => {
+    try {
+        const dataToSend = {
+            formData,
+            isEditMode,
+            editId: editId ?? null,
+        };
+        const response = await ProFetchWP.post('savePriceRule', dataToSend);
+        console.log('Pricing rule saved successfully:', response);
+    } catch (error) {
+        console.error('Error saving pricing rule:', error);
+    }
   };
+
+  useEffect(() => {
+    if (isEditMode) {
+      setFormData(prev => ({ ...prev, isEditing: true }));
+      setFormData(prev => ({ ...prev, editId }));
+    }else {
+      setFormData(prev => ({ ...prev, isEditing: false }));
+    }
+  }, [isEditMode]);
 
   return (
     <div className="acowdp-page">

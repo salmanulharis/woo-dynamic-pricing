@@ -33,6 +33,7 @@ define( 'ACOWDP_STORE_URL', 'https://api.acowebs.com' );
 define( 'ACOWDP_ITEM_ID', 381295 );
 define( 'ACOWDP_REST_NAMESPACE', 'acowdp-api/v1' );
 define( 'ACOWDP_PREFIX', 'acowdp_' );
+define( 'ACOWDP_CPT_PRICING_RULE', 'acowdp_pricing_rule' );
 
 // -----------------------------
 // Plugin Initialization

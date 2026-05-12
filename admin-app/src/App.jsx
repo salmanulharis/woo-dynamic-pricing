@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import PricingRules from "./pages/PricingRules";
-import PricingRuleForm from "./pages/PricingRuleForm";
+import PricingRuleForm from "./pages/PricingRuleForm/PricingRuleForm";
 import "./App.css";
 
 export default function App() {
